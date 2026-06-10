@@ -7,90 +7,82 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f7;color:#1a1a2e;font-size:13px;}
-.layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh;}
-.sidebar{background:#1a1a2e;color:#fff;padding:20px 0;position:sticky;top:0;height:100vh;overflow-y:auto;}
-.sidebar-logo{padding:0 18px 16px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:16px;}
-.sidebar-logo h1{font-size:14px;font-weight:700;line-height:1.4;color:#e0e6ff;}
-.sidebar-logo p{font-size:10px;color:#7a84a8;margin-top:4px;}
-.nav-section{padding:0 12px;margin-bottom:16px;}
-.nav-label{font-size:9px;font-weight:700;color:#4a5280;letter-spacing:0.1em;text-transform:uppercase;padding:0 6px;margin-bottom:6px;}
-.nav-btn{display:block;width:100%;text-align:left;padding:8px 10px;border-radius:7px;border:none;background:none;color:#a0a8c8;font-size:12px;cursor:pointer;transition:all 0.15s;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f7;color:#1a1a2e;font-size:15px;}
+.layout{display:grid;grid-template-columns:240px 1fr;min-height:100vh;}
+.sidebar{background:#1a1a2e;color:#fff;padding:24px 0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:0 20px 18px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:18px;}
+.sidebar-logo h1{font-size:16px;font-weight:700;line-height:1.4;color:#e0e6ff;}
+.sidebar-logo p{font-size:12px;color:#7a84a8;margin-top:5px;}
+.nav-section{padding:0 14px;margin-bottom:18px;}
+.nav-label{font-size:11px;font-weight:700;color:#4a5280;letter-spacing:0.1em;text-transform:uppercase;padding:0 6px;margin-bottom:8px;}
+.nav-btn{display:block;width:100%;text-align:left;padding:10px 12px;border-radius:7px;border:none;background:none;color:#a0a8c8;font-size:14px;cursor:pointer;transition:all 0.15s;}
 .nav-btn:hover{background:rgba(255,255,255,0.08);color:#fff;}
 .nav-btn.active{background:#3d5afe;color:#fff;font-weight:600;}
-.filter-bar{background:#fff;border-bottom:1px solid #e0e4ef;padding:10px 20px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.filter-label{font-size:11px;font-weight:600;color:#555;white-space:nowrap;}
-.filter-btn{padding:5px 11px;border-radius:20px;border:1px solid #d0d5e8;background:#fff;font-size:11px;font-weight:500;cursor:pointer;color:#555;transition:all 0.15s;}
+.filter-bar{background:#fff;border-bottom:1px solid #e0e4ef;padding:12px 24px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.filter-label{font-size:13px;font-weight:600;color:#555;white-space:nowrap;}
+.filter-btn{padding:6px 14px;border-radius:20px;border:1px solid #d0d5e8;background:#fff;font-size:13px;font-weight:500;cursor:pointer;color:#555;transition:all 0.15s;}
 .filter-btn:hover{border-color:#3d5afe;color:#3d5afe;}
 .filter-btn.active-f{background:#3d5afe;color:#fff;border-color:#3d5afe;}
 .filter-btn.f-pro.active-f{background:#2e7d32;border-color:#2e7d32;}
 .filter-btn.f-cond.active-f{background:#e65100;border-color:#e65100;}
 .filter-btn.f-anti.active-f{background:#c62828;border-color:#c62828;}
-.main{padding:20px;overflow-y:auto;min-width:0;}
+.main{padding:24px;overflow-y:auto;min-width:0;}
 .page{display:none;}
 .page.active{display:block;}
-.stat-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px;}
-.stat{background:#fff;border-radius:10px;padding:14px 16px;border:1px solid #e8eaf0;}
-.stat-lbl{font-size:10px;color:#7a7d8c;font-weight:600;letter-spacing:0.03em;margin-bottom:5px;}
-.stat-val{font-size:24px;font-weight:700;}
-.stat-sub{font-size:10px;color:#9a9dac;margin-top:2px;}
-.card{background:#fff;border-radius:10px;border:1px solid #e8eaf0;padding:16px 18px;margin-bottom:16px;}
-.card-title{font-size:13px;font-weight:600;color:#1a1a2e;margin-bottom:12px;}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
-.issue-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:20px;}
-.ic{border-radius:8px;padding:10px 8px;border:1px solid #e0e4ef;cursor:pointer;transition:all 0.15s;}
+.stat-row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px;}
+.stat{background:#fff;border-radius:10px;padding:16px 18px;border:1px solid #e8eaf0;}
+.stat-lbl{font-size:12px;color:#7a7d8c;font-weight:600;letter-spacing:0.03em;margin-bottom:6px;}
+.stat-val{font-size:28px;font-weight:700;}
+.stat-sub{font-size:12px;color:#9a9dac;margin-top:3px;}
+.card{background:#fff;border-radius:10px;border:1px solid #e8eaf0;padding:18px 20px;margin-bottom:18px;}
+.card-title{font-size:15px;font-weight:600;color:#1a1a2e;margin-bottom:14px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;}
+.issue-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-bottom:24px;}
+.ic{border-radius:8px;padding:12px 10px;border:1px solid #e0e4ef;cursor:pointer;transition:all 0.15s;}
 .ic:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.1);}
-.ic-no{font-size:20px;font-weight:700;margin-bottom:3px;}
-.ic-name{font-size:10px;font-weight:600;color:#444;margin-bottom:5px;line-height:1.3;}
-.ic-qs{font-size:9px;color:#888;margin-bottom:6px;}
-.bar-mini{height:5px;border-radius:3px;display:flex;overflow:hidden;margin-bottom:3px;}
+.ic-no{font-size:22px;font-weight:700;margin-bottom:4px;}
+.ic-name{font-size:12px;font-weight:600;color:#444;margin-bottom:6px;line-height:1.3;}
+.ic-qs{font-size:11px;color:#888;margin-bottom:7px;}
+.bar-mini{height:6px;border-radius:3px;display:flex;overflow:hidden;margin-bottom:4px;}
 .bm-p{background:#4caf50;}.bm-c{background:#ff9800;}.bm-a{background:#f44336;}
-.ic-stat{font-size:9px;color:#666;}
-.legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px;}
-.leg{display:flex;align-items:center;gap:5px;font-size:11px;color:#555;}
-.leg-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+.ic-stat{font-size:11px;color:#666;}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:12px;}
+.leg{display:flex;align-items:center;gap:5px;font-size:13px;color:#555;}
+.leg-dot{width:11px;height:11px;border-radius:2px;flex-shrink:0;}
 .hm-wrap{overflow-x:auto;}
 table.hm{width:100%;border-collapse:separate;border-spacing:3px;}
-table.hm th{font-size:10px;font-weight:600;color:#555;padding:6px 4px;text-align:center;white-space:nowrap;}
-table.hm th.lh{text-align:left;min-width:140px;}
-table.hm td{padding:8px 6px;text-align:center;font-size:10px;font-weight:700;border-radius:6px;cursor:pointer;transition:opacity 0.15s;}
+table.hm th{font-size:12px;font-weight:600;color:#555;padding:8px 5px;text-align:center;white-space:nowrap;}
+table.hm th.lh{text-align:left;min-width:160px;}
+table.hm td{padding:10px 7px;text-align:center;font-size:12px;font-weight:700;border-radius:6px;cursor:pointer;transition:opacity 0.15s;}
 table.hm td:hover{opacity:0.75;}
-table.hm td.rl{text-align:left;background:#f0f2f8;font-weight:600;font-size:11px;color:#1a1a2e;padding-left:10px;border-radius:6px;cursor:default;}
+table.hm td.rl{text-align:left;background:#f0f2f8;font-weight:600;font-size:13px;color:#1a1a2e;padding-left:12px;border-radius:6px;cursor:default;}
 .cp{background:#c8e6c9;color:#1b5e20;}.cc{background:#fff3cd;color:#7a4f00;}.ca{background:#ffcdd2;color:#7f0000;}.cn{background:#f0f0f0;color:#aaa;}
-.detail-panel{background:#f8f9fc;border:1px solid #e0e4ef;border-radius:10px;padding:16px;margin-top:12px;display:none;}
+.detail-panel{background:#f8f9fc;border:1px solid #e0e4ef;border-radius:10px;padding:18px;margin-top:14px;display:none;}
 .detail-panel.show{display:block;}
-.dp-title{font-size:12px;font-weight:700;color:#1a1a2e;margin-bottom:10px;}
-.op-row{border-bottom:1px solid #eaecf4;padding:10px 0;display:grid;grid-template-columns:120px 90px 1fr;gap:8px;}
+.dp-title{font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:12px;}
+.op-row{border-bottom:1px solid #eaecf4;padding:12px 0;display:grid;grid-template-columns:130px 100px 1fr;gap:10px;}
 .op-row:last-child{border-bottom:none;}
-.op-org{font-size:11px;font-weight:600;color:#333;}
-.op-ind{font-size:10px;color:#7a7d8c;margin-top:2px;}
-.op-badge{display:inline-block;padding:3px 8px;border-radius:10px;font-size:10px;font-weight:700;}
+.op-org{font-size:13px;font-weight:600;color:#333;}
+.op-ind{font-size:12px;color:#7a7d8c;margin-top:2px;}
+.op-badge{display:inline-block;padding:4px 10px;border-radius:10px;font-size:12px;font-weight:700;}
 .bp{background:#c8e6c9;color:#1b5e20;}.bc{background:#fff3cd;color:#7a4f00;}.ba{background:#ffcdd2;color:#7f0000;}.bn{background:#f0f0f0;color:#aaa;}
-.op-text{font-size:11px;color:#444;line-height:1.6;}
-.conflict-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;}
-.cf-card{background:#fff;border-radius:10px;border:1px solid #e8eaf0;padding:14px;border-top:3px solid;}
-.cf-title{font-size:12px;font-weight:700;margin-bottom:8px;}
-.cf-row{font-size:11px;color:#555;line-height:1.7;margin-bottom:4px;}
+.op-text{font-size:13px;color:#444;line-height:1.7;}
+.conflict-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px;}
+.cf-card{background:#fff;border-radius:10px;border:1px solid #e8eaf0;padding:16px;border-top:3px solid;}
+.cf-title{font-size:14px;font-weight:700;margin-bottom:10px;}
+.cf-row{font-size:13px;color:#555;line-height:1.8;margin-bottom:5px;}
 .cf-pro{color:#2e7d32;font-weight:600;}.cf-anti{color:#c62828;font-weight:600;}.cf-point{color:#e65100;font-weight:600;}
-.ind-detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:16px;}
-.ind-card{background:#fff;border-radius:10px;border:1px solid #e8eaf0;padding:14px;}
-.ind-card-title{font-size:12px;font-weight:700;margin-bottom:4px;}
-.ind-card-members{font-size:10px;color:#888;margin-bottom:10px;}
-.ind-table{width:100%;font-size:11px;border-collapse:collapse;}
-.ind-table tr{border-bottom:1px solid #f0f0f0;}
-.ind-table td{padding:5px 4px;}
-.ind-badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px;}
-.sec-lbl{font-size:10px;font-weight:700;color:#7a7d8c;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #e8eaf0;}
-.q-header{font-size:12px;font-weight:700;color:#333;margin-bottom:8px;padding:6px 10px;background:#f5f6fa;border-radius:6px;}
-.empty-msg{font-size:12px;color:#aaa;padding:20px;text-align:center;}
-  /* 반응형: 좁은 iframe/화면에서 사이드바 숨김 */
+.ind-detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:18px;}
+.ind-card{background:#fff;border-radius:10px;border:1px solid #e8eaf0;padding:16px;}
+.ind-card-title{font-size:14px;font-weight:700;margin-bottom:5px;}
+.ind-card-members{font-size:12px;color:#888;margin-bottom:12px;}
+.sec-lbl{font-size:12px;font-weight:700;color:#7a7d8c;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:12px;padding-bottom:7px;border-bottom:1px solid #e8eaf0;}
+.q-header{font-size:14px;font-weight:700;color:#333;margin-bottom:10px;padding:8px 12px;background:#f5f6fa;border-radius:6px;}
+.empty-msg{font-size:14px;color:#aaa;padding:24px;text-align:center;}
+
 @media (max-width: 900px) {
-  .layout {
-    grid-template-columns: 1fr;
-  }
-  .sidebar {
-    display: none;
-  }
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
 }
 </style>
 </head>
@@ -148,7 +140,7 @@ table.hm td.rl{text-align:left;background:#f0f2f8;font-weight:600;font-size:11px
     <div class="stat"><div class="stat-lbl">전체 찬성률</div><div class="stat-val" style="color:#2e7d32;">52%</div><div class="stat-sub">유효 응답 기준</div></div>
     <div class="stat"><div class="stat-lbl">조건부 찬성</div><div class="stat-val" style="color:#e65100;">29%</div><div class="stat-sub">협의 조건 제시</div></div>
     <div class="stat"><div class="stat-lbl">반대율</div><div class="stat-val" style="color:#c62828;">19%</div><div class="stat-sub">유효 응답 기준</div></div>
-    <div class="stat"><div class="stat-lbl">최다 논거</div><div class="stat-val" style="font-size:14px;color:#0c447c;margin-top:6px;">위험기반접근</div><div class="stat-sub">14개 기관 언급</div></div>
+    <div class="stat"><div class="stat-lbl">최다 논거</div><div class="stat-val" style="font-size:16px;color:#0c447c;margin-top:6px;">위험기반접근</div><div class="stat-sub">14개 기관 언급</div></div>
   </div>
   <p class="sec-lbl">쟁점군 클릭 → 상세 페이지</p>
   <div class="issue-grid">
@@ -164,11 +156,11 @@ table.hm td.rl{text-align:left;background:#f0f2f8;font-weight:600;font-size:11px
     <div class="card">
       <div class="card-title">쟁점군별 찬반 분포</div>
       <div class="legend"><span class="leg"><span class="leg-dot" style="background:#4caf50;"></span>찬성</span><span class="leg"><span class="leg-dot" style="background:#ff9800;"></span>조건부</span><span class="leg"><span class="leg-dot" style="background:#f44336;"></span>반대</span></div>
-      <div style="position:relative;width:100%;height:260px;"><canvas id="ch1" role="img" aria-label="쟁점군별 찬반 분포 차트">찬반 분포</canvas></div>
+      <div style="position:relative;width:100%;height:280px;"><canvas id="ch1" role="img" aria-label="쟁점군별 찬반 분포 차트">찬반 분포</canvas></div>
     </div>
     <div class="card">
       <div class="card-title">주요 논거 키워드 빈도</div>
-      <div style="position:relative;width:100%;height:280px;"><canvas id="ch3" role="img" aria-label="키워드 빈도 차트">키워드 빈도</canvas></div>
+      <div style="position:relative;width:100%;height:300px;"><canvas id="ch3" role="img" aria-label="키워드 빈도 차트">키워드 빈도</canvas></div>
     </div>
   </div>
 </div>
@@ -187,7 +179,7 @@ table.hm td.rl{text-align:left;background:#f0f2f8;font-weight:600;font-size:11px
   <p class="sec-lbl">셀 클릭 → 해당 업계·쟁점군 의견 상세</p>
   <div class="card">
     <div class="card-title">쟁점군 × 업계 포지션 히트맵</div>
-    <div class="legend" style="margin-bottom:12px;">
+    <div class="legend" style="margin-bottom:14px;">
       <span class="leg"><span class="leg-dot" style="background:#c8e6c9;border:1px solid #4caf50;"></span>찬성</span>
       <span class="leg"><span class="leg-dot" style="background:#fff3cd;border:1px solid #ff9800;"></span>조건부찬성</span>
       <span class="leg"><span class="leg-dot" style="background:#ffcdd2;border:1px solid #f44336;"></span>반대</span>
@@ -216,7 +208,7 @@ table.hm td.rl{text-align:left;background:#f0f2f8;font-weight:600;font-size:11px
       <span class="leg"><span class="leg-dot" style="background:#e65100;"></span>선저청소·ROV</span>
       <span class="leg"><span class="leg-dot" style="background:#6a1b9a;"></span>방오장비·MGPS</span>
     </div>
-    <div style="position:relative;width:100%;height:320px;"><canvas id="chRadar" role="img" aria-label="업계별 레이더 차트">레이더</canvas></div>
+    <div style="position:relative;width:100%;height:360px;"><canvas id="chRadar" role="img" aria-label="업계별 레이더 차트">레이더</canvas></div>
   </div>
 </div>
 
@@ -548,12 +540,12 @@ const HEATMAP_DATA=[
 ];
 
 const INDUSTRY_DATA=[
-  {ind:'방오도료',color:'#1565c0',members:'츄고쿠삼화페인트, 아이피케이, 케이씨씨, 한화오션*',rows:[['① 정의·범위','반대','병원체 포함 반대'],['⑤ 평가·검사','조건부','도료 수명 연계 필요'],['⑥ 기준·집행','반대','1% 기준·제거 의무 반대'],['⑦ 기술·제도','조건부','기술 중립성 강조'],['핵심 논거','—','위험기반·도료 손상 우려·선사 자율']]},
-  {ind:'조선소',color:'#2e7d32',members:'HD현대중공업, 한화오션*, HD한국조선해양',rows:[['③ 인력·장비','조건부','설계 현실적 대안 공감대 필요'],['④ 적용범위','찬성','단일국가 관할수역 제외 타당'],['⑤ 평가·검사','조건부','예외 조건 필요 (접근 불가 해역 등)'],['핵심 논거','—','위험기반·설계단계 반영·예외조항']]},
-  {ind:'잠수작업',color:'#00838f',members:'태평양해양산업, 대선수중개발, 씨맨더다이빙, 울산수중기술, SGS',rows:[['① 정의·범위','반대','병원체 포함 반대 (울산수중기술 제외)'],['③ 인력·장비','조건부','안전기준 규격화 선행'],['⑤ 평가·검사','찬성','의무화 찬성'],['⑥ 기준·집행','찬성','30/90일 기준 수용'],['핵심 논거','—','안전기준·동영상 증빙·주기 단축']]},
-  {ind:'선저청소·ROV',color:'#e65100',members:'헐와이퍼코리아, C-LEANSHIP, 타스글로벌, 에스엘엠',rows:[['① 정의·범위','조건부','Risk-based 조건부'],['③ 인력·장비','찬성','ROV+잠수사 complementary'],['⑤ 평가·검사','찬성','의무화 + 증거 제도화'],['⑦ 기술·제도','찬성','IMO 성능기준 역할 지지'],['핵심 논거','—','기술중립성·IWCS 승인기준·항만시설']]},
-  {ind:'방오장비·MGPS',color:'#6a1b9a',members:'스펄스엠텍, 케이씨',rows:[['① 정의·범위','반대','병원체 포함 반대'],['⑤ 평가·검사','찬성','정기 평가 적극 찬성'],['⑦ 기술·제도','조건부','MGPS 소음 장비별 차등'],['핵심 논거','—','MGPS 예방기술 인정·FMEA 기반']]},
-  {ind:'규제·컨설팅',color:'#78909c',members:'고려에스엠',rows:[['① 정의·범위','반대','병원체 포함 반대'],['③ 인력·장비','반대','글로벌 항만 안전기준 상이'],['④ 적용범위','조건부','국내법 risk-based 적용 가능성 유지'],['핵심 논거','—','선사 자율·유연한 완화 조치']]},
+  {ind:'방오도료',color:'#1565c0',members:'츄고쿠삼화페인트, 아이피케이, 케이씨씨, 한화오션*'},
+  {ind:'조선소',color:'#2e7d32',members:'HD현대중공업, 한화오션*, HD한국조선해양'},
+  {ind:'잠수작업',color:'#00838f',members:'태평양해양산업, 대선수중개발, 씨맨더다이빙, 울산수중기술, SGS'},
+  {ind:'선저청소·ROV',color:'#e65100',members:'헐와이퍼코리아, C-LEANSHIP, 타스글로벌, 에스엘엠'},
+  {ind:'방오장비·MGPS',color:'#6a1b9a',members:'스펄스엠텍, 케이씨'},
+  {ind:'규제·컨설팅',color:'#78909c',members:'고려에스엠'},
 ];
 
 const CONFLICTS=[
@@ -622,7 +614,7 @@ function renderIssuePage(id){
     if(activeVoteFilter)ops=ops.filter(o=>o.v===activeVoteFilter);
     if(!ops.length)return;
     hasContent=true;
-    html+=`<div style="margin-bottom:18px;"><div class="q-header">${qid} — ${qd.label}</div>`;
+    html+=`<div style="margin-bottom:20px;"><div class="q-header">${qid} — ${qd.label}</div>`;
     ops.forEach(o=>{
       const ind=ORG_IND[o.org]||'';
       const indColor=IND_COLORS[ind]||'#888';
@@ -672,7 +664,7 @@ function showHmDetail(issue,ind){
   let h=`<div class="dp-title">${issue} × ${ind} — 상세 의견 (${ops.length}건)</div>`;
   ops.forEach(o=>{
     h+=`<div class="op-row">
-      <div><div class="op-org">${o.org}</div><div class="op-ind" style="font-size:9px;color:#888;">${o.qid}: ${o.qlabel.substring(0,22)}…</div></div>
+      <div><div class="op-org">${o.org}</div><div class="op-ind" style="font-size:11px;color:#888;">${o.qid}: ${o.qlabel.substring(0,22)}…</div></div>
       <div style="padding-top:2px;"><span class="op-badge ${voteClass(o.v)}">${voteLabel(o.v)}</span></div>
       <div class="op-text">${o.t||'—'}</div>
     </div>`;
@@ -706,7 +698,7 @@ function renderIndustry(){
     h+='<div class="ind-card-title" style="color:'+color+';">'+ind+'</div>';
     h+='<div class="ind-card-members">'+members+'</div>';
     if(allOps.length===0){
-      h+='<p style="font-size:11px;color:#aaa;padding:8px 0;">현재 필터 조건에 해당하는 응답 없음</p>';
+      h+='<p style="font-size:13px;color:#aaa;padding:8px 0;">현재 필터 조건에 해당하는 응답 없음</p>';
     } else {
       var byIssue={};
       allOps.forEach(function(o){
@@ -715,15 +707,15 @@ function renderIndustry(){
       });
       Object.keys(byIssue).sort(function(a,b){return a-b;}).forEach(function(issueIdx){
         var ops=byIssue[issueIdx];
-        h+='<div style="margin-bottom:12px;">';
-        h+='<div style="font-size:10px;font-weight:700;color:#888;margin-bottom:4px;padding-bottom:3px;border-bottom:1px solid #f0f0f0;">'+(issueNames[issueIdx]||'')+'</div>';
+        h+='<div style="margin-bottom:14px;">';
+        h+='<div style="font-size:12px;font-weight:700;color:#888;margin-bottom:5px;padding-bottom:4px;border-bottom:1px solid #f0f0f0;">'+(issueNames[issueIdx]||'')+'</div>';
         ops.forEach(function(o){
           var vc=o.v==='찬성'?'bp':o.v==='조건부'?'bc':o.v==='반대'?'ba':'bn';
           var vl=o.v==='조건부'?'조건부찬성':o.v;
-          h+='<div style="display:grid;grid-template-columns:100px 80px 1fr;gap:6px;padding:6px 0;border-bottom:0.5px solid #f5f5f5;align-items:start;">';
-          h+='<div style="font-size:10px;font-weight:600;color:#333;">'+o.org+'<div style="font-size:9px;color:#aaa;margin-top:1px;">'+o.qid+'</div></div>';
-          h+='<div><span class="ind-badge '+vc+'">'+vl+'</span></div>';
-          h+='<div style="font-size:10px;color:#444;line-height:1.5;">'+(o.t||'—')+'</div>';
+          h+='<div style="display:grid;grid-template-columns:110px 90px 1fr;gap:8px;padding:7px 0;border-bottom:0.5px solid #f5f5f5;align-items:start;">';
+          h+='<div style="font-size:12px;font-weight:600;color:#333;">'+o.org+'<div style="font-size:11px;color:#aaa;margin-top:1px;">'+o.qid+'</div></div>';
+          h+='<div><span style="display:inline-block;font-size:11px;font-weight:700;padding:3px 8px;border-radius:10px;" class="'+vc+'">'+vl+'</span></div>';
+          h+='<div style="font-size:12px;color:#444;line-height:1.6;">'+(o.t||'—')+'</div>';
           h+='</div>';
         });
         h+='</div>';
@@ -731,10 +723,11 @@ function renderIndustry(){
     }
     h+='</div>';
   });
-  if(!h)h='<div style="grid-column:1/-1;text-align:center;padding:40px;color:#aaa;font-size:12px;">현재 필터 조건에 해당하는 응답 없음</div>';
+  if(!h)h='<div style="grid-column:1/-1;text-align:center;padding:40px;color:#aaa;font-size:14px;">현재 필터 조건에 해당하는 응답 없음</div>';
   g.style.gridTemplateColumns=activeFilter==='all'?'repeat(2,1fr)':'1fr';
   g.innerHTML=h;
 }
+
 function renderConflict(){
   const g=document.getElementById('conflictGrid');
   let h='';
@@ -743,7 +736,7 @@ function renderConflict(){
       <div class="cf-title" style="color:${c.color};">${c.title}</div>
       <div class="cf-row"><span class="cf-pro">찬성측</span>: ${c.pro}</div>
       <div class="cf-row"><span class="cf-anti">반대측</span>: ${c.anti}</div>
-      <div class="cf-row" style="margin-top:6px;"><span class="cf-point">쟁점</span>: ${c.point}</div>
+      <div class="cf-row" style="margin-top:8px;"><span class="cf-point">쟁점</span>: ${c.point}</div>
     </div>`;
   });
   g.innerHTML=h;
@@ -758,8 +751,8 @@ function renderConflict(){
           {label:'선저청소·ROV',data:[45,82,78,62,78,72,75],borderColor:'#e65100',backgroundColor:'rgba(230,81,0,0.07)',pointBackgroundColor:'#e65100',borderWidth:1.5,pointRadius:3},
           {label:'방오장비·MGPS',data:[20,78,42,38,85,72,70],borderColor:'#6a1b9a',backgroundColor:'rgba(106,27,154,0.07)',pointBackgroundColor:'#6a1b9a',borderWidth:1.5,pointRadius:3},
         ]},
-      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:10},boxWidth:10,padding:8}}},
-        scales:{r:{min:0,max:100,ticks:{stepSize:25,font:{size:9},color:'#aaa',backdropColor:'transparent'},grid:{color:'rgba(0,0,0,0.08)'},pointLabels:{font:{size:10,weight:'500'}}}}}
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:12},boxWidth:12,padding:10}}},
+        scales:{r:{min:0,max:100,ticks:{stepSize:25,font:{size:11},color:'#aaa',backdropColor:'transparent'},grid:{color:'rgba(0,0,0,0.08)'},pointLabels:{font:{size:12,weight:'500'}}}}}
     });
   }
 }
@@ -773,7 +766,7 @@ new Chart(document.getElementById('ch1'),{
       {label:'반대',data:[6,2,3,9,7,6,8],backgroundColor:'#f44336',borderRadius:3},
     ]},
   options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
-    scales:{x:{stacked:true,grid:{color:'rgba(0,0,0,0.06)'},ticks:{color:'#888',font:{size:10}}},y:{stacked:true,ticks:{color:'#444',font:{size:11,weight:'500'}}}}}
+    scales:{x:{stacked:true,grid:{color:'rgba(0,0,0,0.06)'},ticks:{color:'#888',font:{size:12}}},y:{stacked:true,ticks:{color:'#444',font:{size:13,weight:'500'}}}}}
 });
 
 new Chart(document.getElementById('ch3'),{
@@ -782,7 +775,7 @@ new Chart(document.getElementById('ch3'),{
     datasets:[{label:'언급 빈도',data:[14,11,10,9,9,8,7,7,6,5],
       backgroundColor:['#1565c0','#1565c0','#2e7d32','#c62828','#1565c0','#2e7d32','#e65100','#2e7d32','#c62828','#c62828'],borderRadius:4}]},
   options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
-    scales:{x:{grid:{color:'rgba(0,0,0,0.06)'},ticks:{color:'#888',font:{size:10}}},y:{ticks:{color:'#444',font:{size:11}}}}}
+    scales:{x:{grid:{color:'rgba(0,0,0,0.06)'},ticks:{color:'#888',font:{size:12}}},y:{ticks:{color:'#444',font:{size:13}}}}}
 });
 </script>
 </body>
