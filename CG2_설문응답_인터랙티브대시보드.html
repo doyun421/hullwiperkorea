@@ -83,6 +83,15 @@ table.hm td.rl{text-align:left;background:#f0f2f8;font-weight:600;font-size:11px
 .sec-lbl{font-size:10px;font-weight:700;color:#7a7d8c;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #e8eaf0;}
 .q-header{font-size:12px;font-weight:700;color:#333;margin-bottom:8px;padding:6px 10px;background:#f5f6fa;border-radius:6px;}
 .empty-msg{font-size:12px;color:#aaa;padding:20px;text-align:center;}
+  /* 반응형: 좁은 iframe/화면에서 사이드바 숨김 */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+}
 </style>
 </head>
 <body>
